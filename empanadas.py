@@ -37,7 +37,9 @@ def main():
             print("Pedido de empanaditis")
             pedir_empanadas(pedidos,gustos)
         elif opcion == 2:
-            pass
+            print("Agregado de gustos de empanadas")
+            agregar_gusto(gustos)
+            print(gustos)
         elif opcion == 3:
             pass
         elif opcion == 4:
@@ -47,6 +49,10 @@ def main():
         opcion = pedir_opcion()
 
     print("Gracias por usar este softie!")
+
+def agregar_gusto(gustos):
+    gustos.append(pedir_gusto_empanada())
+
 
 #suma de empanadas de cada gusto por pedido
 
