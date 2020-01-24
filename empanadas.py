@@ -41,9 +41,12 @@ def main():
             agregar_gusto(gustos)
             print(gustos)
         elif opcion == 3:
-            pass
+            print("Suma de empanadas")
+            print(sumar_cantidad_cada_gusto(pedidos))
         elif opcion == 4:
-            pass
+            print("Precio de las empanadas")
+
+            print(valorar_empanadas(pedidos))
         else:
             print("No existe tal opcion")
         opcion = pedir_opcion()
@@ -53,14 +56,33 @@ def main():
 def agregar_gusto(gustos):
     gustos.append(pedir_gusto_empanada())
 
+def sumar_cantidad_cada_gusto(pedidos):
+    suma = {}
+    preferencias = pedidos.values()
+    for pedido in preferencias:
+        for clave in pedido:
+            if clave not in suma:
+                suma[clave] = pedido[clave]
+            else:
+                suma[clave] += pedido[clave]
+    return suma
 
-#suma de empanadas de cada gusto por pedido
 
 
-#calcular precio de empanadas
+def valorar_empanadas(pedidos):
+    empas = sumar_cantidad_cada_gusto(pedidos)
+    total = 0
+    precio = 10
+    for gusto in empas:
+        total += empas[gusto]
+    return "$" + str(total*precio)
+
+
+main()
+
+
 
 #promo
 
 
 
-main()
